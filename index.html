@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RepaLab — órdenes, proveedores y precios en un solo lugar. Software para servicios técnicos y talleres de reparación en Argentina."
+    />
+    <title>RepaLab — Gestión de reparaciones y proveedores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <a class="logo" href="#inicio" aria-label="RepaLab inicio">
+        <span class="logo-mark" aria-hidden="true"></span>
+        RepaLab
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#funciones">Funciones</a>
+        <a href="#capturas">Capturas</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="https://app.repalab.com.ar">Entrar</a>
+        <a class="btn btn-primary" href="#precios">Probar 7 días</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div id="menu-movil" class="nav-drawer" hidden>
+      <a href="#funciones">Funciones</a>
+      <a href="#capturas">Capturas</a>
+      <a href="#precios">Precios</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn btn-primary" href="#precios">Probar 7 días</a>
+    </div>
+
+    <main id="contenido">
+      <section id="inicio" class="hero">
+        <div class="hero-atmosphere" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="brand-lockup">RepaLab</p>
+          <h1>Órdenes, proveedores y precios en un solo lugar.</h1>
+          <p class="lede">
+            El lab digital para tu servicio técnico: organizá reparaciones, stock y proveedores sin Excel ni papel.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" href="https://app.repalab.com.ar/registro">Probar 7 días gratis</a>
+            <a class="btn btn-secondary btn-lg" href="#precios">Ver precios</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <figure class="app-stage">
+            <div class="app-chrome" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <strong>app.repalab.com.ar</strong>
+            </div>
+            <img
+              class="app-shot"
+              src="/screenshots/dashboard.png"
+              width="1280"
+              height="720"
+              alt="Panel principal de RepaLab con módulos de clientes, órdenes, stock, calendario y más"
+              fetchpriority="high"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section id="funciones" class="section">
+        <div class="section-head reveal">
+          <h2>Hecho para el piso del taller</h2>
+          <p>Menos llamadas “¿está listo?”, más control de lo que entra, sale y cuesta.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <h3>Órdenes claras</h3>
+            <p>Estados, técnicos, fotos y seguimiento. El cliente ve el avance sin llamarte.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Proveedores y precios</h3>
+            <p>Listas de precios, costos y proveedores en el mismo flujo que la reparación.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Stock con dólar BNA</h3>
+            <p>Costos en USD, precio final en ARS e IVA. El tipo de cambio se actualiza solo.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Agenda y pendientes</h3>
+            <p>Calendario del taller, avisos y tareas asignadas al equipo.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Clientes e importación</h3>
+            <p>Directorio con CUIT, mail y detalle. Importá clientes desde Excel en un paso.</p>
+          </article>
+          <article class="feature reveal">
+            <h3>Online o instalada</h3>
+            <p>Usala como PWA en el celular o PC: ícono en el inicio, sin Google Play.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="capturas" class="section section-captures">
+        <div class="section-head reveal">
+          <h2>Así se ve en el día a día</h2>
+          <p>Capturas reales de RepaLab: órdenes, stock, clientes, calendario y más.</p>
+        </div>
+        <div class="capture-rail reveal" tabindex="0" aria-label="Galería de capturas de la app">
+          <figure class="capture">
+            <img src="/screenshots/ordenes.png" width="1280" height="720" alt="Listado de órdenes de trabajo con búsqueda y estados" loading="lazy" />
+            <figcaption>Órdenes de trabajo</figcaption>
+          </figure>
+          <figure class="capture">
+            <img src="/screenshots/nueva-orden.png" width="1280" height="720" alt="Formulario para crear una nueva orden de trabajo" loading="lazy" />
+            <figcaption>Nueva orden</figcaption>
+          </figure>
+          <figure class="capture">
+            <img src="/screenshots/stock.png" width="1280" height="720" alt="Módulo de stock con dólar BNA y precios" loading="lazy" />
+            <figcaption>Stock y precios</figcaption>
+          </figure>
+          <figure class="capture">
+            <img src="/screenshots/clientes.png" width="1280" height="720" alt="Directorio de clientes con importación desde Excel" loading="lazy" />
+            <figcaption>Clientes</figcaption>
+          </figure>
+          <figure class="capture">
+            <img src="/screenshots/calendario.png" width="1280" height="720" alt="Calendario mensual del taller" loading="lazy" />
+            <figcaption>Calendario</figcaption>
+          </figure>
+          <figure class="capture">
+            <img src="/screenshots/pendientes.png" width="1280" height="720" alt="Pendientes y tareas del equipo" loading="lazy" />
+            <figcaption>Pendientes</figcaption>
+          </figure>
+          <figure class="capture">
+            <img src="/screenshots/menu.png" width="720" height="1280" alt="Menú dashboard de módulos de RepaLab" loading="lazy" />
+            <figcaption>Menú de módulos</figcaption>
+          </figure>
+          <figure class="capture">
+            <img src="/screenshots/cuenta.png" width="720" height="720" alt="Menú de cuenta, preferencias y taller" loading="lazy" />
+            <figcaption>Cuenta y preferencias</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="precios" class="section section-pricing">
+        <div class="section-head reveal">
+          <h2>Precios en pesos, sin letra chica</h2>
+          <p>Más accesible que la competencia local. 7 días gratis. Cancelás cuando quieras.</p>
+          <div class="billing-toggle" role="group" aria-label="Periodo de facturación">
+            <button type="button" class="billing-btn is-active" data-billing="monthly">Mensual</button>
+            <button type="button" class="billing-btn" data-billing="yearly">Anual · −20%</button>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="plan reveal" data-plan="esencial">
+            <h3>Esencial</h3>
+            <p class="plan-for">Para empezar solo</p>
+            <p class="price">
+              <span class="amount" data-monthly="16900" data-yearly="13520">$16.900</span>
+              <span class="per">/mes</span>
+            </p>
+            <p class="price-note yearly-only" hidden>Facturado anualmente</p>
+            <ul>
+              <li>1 usuario</li>
+              <li>Órdenes y clientes</li>
+              <li>Usar online + instalar PWA</li>
+              <li>Soporte por email</li>
+            </ul>
+            <a class="btn btn-secondary" href="https://app.repalab.com.ar/registro?plan=esencial">Empezar</a>
+          </article>
+
+          <article class="plan plan-featured reveal" data-plan="taller">
+            <p class="plan-tag">Recomendado</p>
+            <h3>Taller</h3>
+            <p class="plan-for">Para el equipo del piso</p>
+            <p class="price">
+              <span class="amount" data-monthly="24900" data-yearly="19920">$24.900</span>
+              <span class="per">/mes</span>
+            </p>
+            <p class="price-note yearly-only" hidden>Facturado anualmente</p>
+            <ul>
+              <li>Usuarios múltiples</li>
+              <li>Proveedores y listas de precios</li>
+              <li>Stock e inventario</li>
+              <li>Agenda, pendientes y avisos</li>
+              <li>Soporte prioritario</li>
+            </ul>
+            <a class="btn btn-primary" href="https://app.repalab.com.ar/registro?plan=taller">Probar 7 días</a>
+          </article>
+
+          <article class="plan reveal" data-plan="labpro">
+            <h3>Lab Pro</h3>
+            <p class="plan-for">Para operar en grande</p>
+            <p class="price">
+              <span class="amount" data-monthly="34900" data-yearly="27920">$34.900</span>
+              <span class="per">/mes</span>
+            </p>
+            <p class="price-note yearly-only" hidden>Facturado anualmente</p>
+            <ul>
+              <li>Todo lo de Taller</li>
+              <li>Sucursales / multi-local</li>
+              <li>Permisos avanzados</li>
+              <li>Capacitación inicial</li>
+            </ul>
+            <a class="btn btn-secondary" href="https://app.repalab.com.ar/registro?plan=labpro">Empezar</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="acceso" class="section section-access">
+        <div class="access-grid reveal">
+          <div>
+            <h2>Usala online o instalala</h2>
+            <p>
+              Abrí <strong>app.repalab.com.ar</strong> desde el navegador, o instalá la PWA y queda como app en el celular o la PC — sin pasar por Google Play.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://app.repalab.com.ar">Usar online</a>
+              <a class="btn btn-secondary" href="https://app.repalab.com.ar?install=1">Cómo instalar</a>
+            </div>
+          </div>
+          <ol class="install-steps">
+            <li><strong>Abrí la app</strong> en Chrome (Android) o Safari (iPhone).</li>
+            <li><strong>Instalá</strong> con “Agregar a inicio” / el banner de instalación.</li>
+            <li><strong>Listo</strong>: ícono en el escritorio, notificaciones y acceso rápido.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="contacto" class="section section-contact">
+        <div class="contact-wrap reveal">
+          <div>
+            <h2>¿Tenés dudas?</h2>
+            <p>Escribinos y te respondemos. También sirve para demos o armar un plan a medida.</p>
+            <p class="contact-mail">
+              <a href="mailto:hola@repalab.com.ar">hola@repalab.com.ar</a>
+            </p>
+          </div>
+          <form class="contact-form" id="contacto-form" novalidate>
+            <label>
+              Nombre
+              <input type="text" name="nombre" required autocomplete="name" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label>
+              Mensaje
+              <textarea name="mensaje" rows="4" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <strong>RepaLab</strong>
+        <span>repalab.com.ar</span>
+      </div>
+      <p>© <span id="year"></span> RepaLab. Gestión de reparaciones y proveedores.</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
