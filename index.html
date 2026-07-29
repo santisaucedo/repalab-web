@@ -2,8 +2,10 @@
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/brand/repalab-icon.png" />
+    <link rel="apple-touch-icon" href="/brand/repalab-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b10" />
     <meta
       name="description"
       content="RepaLab — órdenes, proveedores y precios en un solo lugar. Software para servicios técnicos y talleres de reparación en Argentina."
@@ -16,14 +18,33 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      (() => {
+        try {
+          const stored = localStorage.getItem("repalab-theme");
+          const theme =
+            stored === "light" || stored === "dark" || stored === "system"
+              ? stored
+              : "dark";
+          const resolved =
+            theme === "system"
+              ? window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light"
+              : theme;
+          document.documentElement.dataset.theme = resolved;
+          document.documentElement.style.colorScheme = resolved;
+        } catch {}
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
     <header class="site-header">
       <a class="logo" href="#inicio" aria-label="RepaLab inicio">
-        <span class="logo-mark" aria-hidden="true"></span>
-        RepaLab
+        <img src="/brand/repalab-icon.png" width="34" height="34" alt="" aria-hidden="true" />
+        <span>RepaLab</span>
       </a>
       <nav class="nav" aria-label="Principal">
         <a href="#funciones">Funciones</a>
@@ -35,10 +56,56 @@
         <a class="btn btn-ghost" href="https://app.repalab.com.ar">Entrar</a>
         <a class="btn btn-primary" href="https://app.repalab.com.ar/demo">Ver demo</a>
       </div>
+      <button
+        class="preferences-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="preferencias"
+        aria-label="Abrir preferencias de apariencia y sonido"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.86 2.86-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21H9.56v-.1A1.7 1.7 0 0 0 8.5 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.86-2.86.06-.06A1.7 1.7 0 0 0 4.1 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H2.3V9.56h.1A1.7 1.7 0 0 0 4.1 8.5a1.7 1.7 0 0 0-.34-1.88l-.06-.06L6.56 3.7l.06.06A1.7 1.7 0 0 0 8.5 4.1a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1v-.1h4.04v.1A1.7 1.7 0 0 0 15 4.1a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.86 2.86-.06.06A1.7 1.7 0 0 0 19.4 8.5c.25.6.84 1 1.5 1.06h.1v4.04h-.1a1.7 1.7 0 0 0-1.5 1.4Z" />
+        </svg>
+      </button>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú">
         <span></span><span></span>
       </button>
     </header>
+
+    <aside id="preferencias" class="preferences-panel" aria-label="Preferencias" hidden>
+      <div class="preferences-head">
+        <div>
+          <span class="eyebrow">Tu experiencia</span>
+          <h2>Preferencias</h2>
+        </div>
+        <button class="preferences-close" type="button" aria-label="Cerrar preferencias">×</button>
+      </div>
+      <fieldset class="preference-group">
+        <legend>Apariencia</legend>
+        <div class="theme-options">
+          <button type="button" data-theme-option="dark" aria-pressed="true">Oscuro</button>
+          <button type="button" data-theme-option="light" aria-pressed="false">Claro</button>
+          <button type="button" data-theme-option="system" aria-pressed="false">Sistema</button>
+        </div>
+      </fieldset>
+      <div class="preference-row">
+        <div>
+          <strong>Sonidos de interfaz</strong>
+          <span>Respuesta sutil al elegir opciones</span>
+        </div>
+        <button class="sound-toggle" type="button" role="switch" aria-checked="true">
+          <span aria-hidden="true"></span>
+          <span class="sr-only">Activar sonidos</span>
+        </button>
+      </div>
+      <label class="volume-control">
+        <span>Volumen</span>
+        <input type="range" min="0" max="100" value="28" step="1" />
+        <output>28%</output>
+      </label>
+    </aside>
+    <div class="preferences-backdrop" hidden></div>
 
     <div id="menu-movil" class="nav-drawer" hidden>
       <a href="#funciones">Funciones</a>
@@ -55,7 +122,7 @@
           <p class="brand-lockup">RepaLab</p>
           <h1>Órdenes, proveedores y precios en un solo lugar.</h1>
           <p class="lede">
-            El lab digital para tu servicio técnico: organizá reparaciones, stock y proveedores sin Excel ni papel.
+            El laboratorio digital para tu servicio técnico y gestión de tus ventas: organizá reparaciones, stock y proveedores. Chau Excel y papel.
           </p>
           <div class="cta-row">
             <a class="btn btn-primary btn-lg" href="https://app.repalab.com.ar/demo">Probar 7 días gratis</a>
@@ -63,36 +130,78 @@
           </div>
         </div>
         <div class="hero-visual">
+          <div class="hero-carousel" aria-label="Capturas destacadas de RepaLab">
           <figure class="app-stage">
             <div class="app-chrome" aria-hidden="true">
               <span></span><span></span><span></span>
               <strong>app.repalab.com.ar</strong>
             </div>
-            <img
-              class="app-shot"
-              src="/screenshots/dashboard.png"
-              width="1280"
-              height="720"
-              alt="Panel principal de RepaLab con módulos de clientes, órdenes, stock, calendario y más"
-              fetchpriority="high"
-            />
+            <div class="hero-slides">
+              <img
+                class="app-shot is-active"
+                src="/screenshots/dashboard.png"
+                width="1280"
+                height="720"
+                alt="Panel principal de RepaLab con módulos de clientes, órdenes, stock, calendario y más"
+                fetchpriority="high"
+                data-hero-slide
+              />
+              <img
+                class="app-shot"
+                src="/screenshots/ordenes.png"
+                width="1280"
+                height="720"
+                alt="Listado de órdenes de trabajo en RepaLab"
+                loading="eager"
+                data-hero-slide
+              />
+              <img
+                class="app-shot"
+                src="/screenshots/stock.png"
+                width="1280"
+                height="720"
+                alt="Gestión de stock y precios en RepaLab"
+                loading="eager"
+                data-hero-slide
+              />
+              <img
+                class="app-shot"
+                src="/screenshots/calendario.png"
+                width="1280"
+                height="720"
+                alt="Calendario y agenda de RepaLab"
+                loading="lazy"
+                data-hero-slide
+              />
+            </div>
           </figure>
+          <div class="hero-carousel-controls">
+            <button type="button" class="hero-carousel-arrow" data-hero-prev aria-label="Captura anterior">←</button>
+            <div class="hero-carousel-dots" role="group" aria-label="Elegir captura">
+              <button type="button" class="is-active" data-hero-dot="0" aria-label="Ver panel principal" aria-pressed="true"></button>
+              <button type="button" data-hero-dot="1" aria-label="Ver órdenes" aria-pressed="false"></button>
+              <button type="button" data-hero-dot="2" aria-label="Ver stock" aria-pressed="false"></button>
+              <button type="button" data-hero-dot="3" aria-label="Ver calendario" aria-pressed="false"></button>
+            </div>
+            <button type="button" class="hero-carousel-arrow" data-hero-next aria-label="Captura siguiente">→</button>
+          </div>
+          </div>
         </div>
       </section>
 
       <section id="funciones" class="section">
         <div class="section-head reveal">
-          <h2>Hecho para el piso del taller</h2>
-          <p>Menos llamadas “¿está listo?”, más control de lo que entra, sale y cuesta.</p>
+          <h2>Gestiona tu pyme de manera sencilla</h2>
+          <p>Más control de lo que entra y sale. Con registro de órdenes de trabajo, stock y ventas en un solo lugar.</p>
         </div>
         <div class="feature-grid">
           <article class="feature reveal">
             <h3>Órdenes claras</h3>
-            <p>Estados, técnicos, fotos y seguimiento. El cliente ve el avance sin llamarte.</p>
+            <p>Estados, técnicos, fotos y seguimiento interno para que tu equipo sepa en qué va cada reparación.</p>
           </article>
           <article class="feature reveal">
             <h3>Proveedores y precios</h3>
-            <p>Listas de precios, costos y proveedores en el mismo flujo que la reparación.</p>
+            <p>Listas de precios, costos y proveedores cargados en la app, listos para usar cuando armás la orden o la venta.</p>
           </article>
           <article class="feature reveal">
             <h3>Stock con dólar BNA</h3>
@@ -271,8 +380,8 @@
 
     <footer class="site-footer">
       <div class="footer-brand">
-        <span class="logo-mark" aria-hidden="true"></span>
-        <strong>RepaLab</strong>
+        <img class="footer-logo footer-logo--dark" src="/brand/repalab-badge.png" width="220" height="54" alt="RepaLab" />
+        <img class="footer-logo footer-logo--light" src="/brand/repalab-wordmark.png" width="220" height="54" alt="RepaLab" />
         <span>repalab.com.ar</span>
       </div>
       <p>© <span id="year"></span> RepaLab. Gestión de reparaciones y proveedores.</p>
