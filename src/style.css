@@ -910,14 +910,98 @@ h3,
   color: rgba(232, 238, 242, 0.82);
 }
 
+.pricing-custom {
+  margin: 1.75rem 0 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.pricing-custom a {
+  color: var(--teal-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .contact-wrap {
   display: grid;
   gap: 1.75rem;
 }
 
-.contact-mail a {
+.contact-channels {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.contact-channel:hover {
+  border-color: color-mix(in srgb, var(--teal) 55%, var(--line));
+  transform: translateY(-1px);
+}
+
+.contact-channel span:last-child {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.contact-channel strong {
+  font-size: 0.95rem;
+}
+
+.contact-channel-detail {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.contact-channel-icon {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--teal) 16%, transparent);
   color: var(--teal-deep);
-  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.contact-channel--whatsapp .contact-channel-icon {
+  background: color-mix(in srgb, #25d366 18%, transparent);
+  color: #1fad55;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 3.35rem;
+  height: 3.35rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.35);
 }
 
 .contact-form {
