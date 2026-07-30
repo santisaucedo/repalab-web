@@ -248,7 +248,7 @@ function initContactForm(): void {
     const body = encodeURIComponent(
       `Nombre: ${nombre}\nEmail: ${email}\n\n${mensaje}`,
     );
-    window.location.href = `mailto:hola@repalab.com.ar?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contacto@repalab.com.ar?subject=${subject}&body=${body}`;
     status.textContent = "Abriendo tu cliente de correo…";
     form.reset();
   });
