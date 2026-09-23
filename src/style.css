@@ -756,6 +756,21 @@ h3,
   scroll-snap-align: start;
 }
 
+.capture-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.capture-open:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
 .capture img {
   width: 100%;
   height: auto;
@@ -766,6 +781,106 @@ h3,
   border: 1px solid var(--line);
   background: #0b1220;
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.capture-open:hover img {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--teal) 40%, var(--line));
+}
+
+.lightbox {
+  width: min(1120px, calc(100vw - 2rem));
+  max-width: none;
+  height: min(86vh, 820px);
+  margin: auto;
+  padding: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--ink);
+  background: #0b1220;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+}
+
+.lightbox::backdrop {
+  background: rgba(4, 7, 12, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox[open] {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.lightbox-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lightbox-caption {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.lightbox-tools,
+.lightbox-nav {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.lightbox-tools button,
+.lightbox-nav {
+  min-width: 42px;
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  color: #f4f7f9;
+  background: rgba(255, 255, 255, 0.06);
+  font: 600 1.15rem/1 var(--font-body);
+  cursor: pointer;
+}
+
+.lightbox-stage {
+  min-width: 0;
+  height: 100%;
+  overflow: auto;
+  border-radius: 14px;
+  background: #070b12;
+}
+
+.lightbox-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  cursor: zoom-in;
+}
+
+@media (max-width: 720px) {
+  .lightbox[open] {
+    width: calc(100vw - 1rem);
+    height: min(94vh, 900px);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .lightbox-stage {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    grid-row: 3;
+    justify-self: stretch;
+  }
 }
 
 .capture figcaption {

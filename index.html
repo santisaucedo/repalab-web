@@ -224,40 +224,55 @@
 
       <section id="capturas" class="section section-captures">
         <div class="section-head reveal">
-          <h2>Así se ve en el día a día</h2>
-          <p>Capturas reales de RepaLab: órdenes, stock, clientes, calendario y más.</p>
+          <h2>Capturas reales de RepaLab</h2>
         </div>
         <div class="capture-rail reveal" tabindex="0" aria-label="Galería de capturas de la app">
           <figure class="capture">
-            <img src="/screenshots/ordenes.png" width="1280" height="720" alt="Listado de órdenes de trabajo con búsqueda y estados" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Órdenes de trabajo">
+              <img src="/screenshots/ordenes.png" width="1280" height="720" alt="Listado de órdenes de trabajo con búsqueda y estados" loading="lazy" />
+            </button>
             <figcaption>Órdenes de trabajo</figcaption>
           </figure>
           <figure class="capture">
-            <img src="/screenshots/nueva-orden.png" width="1280" height="720" alt="Formulario para crear una nueva orden de trabajo" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Nueva orden">
+              <img src="/screenshots/nueva-orden.png" width="1280" height="720" alt="Formulario para crear una nueva orden de trabajo" loading="lazy" />
+            </button>
             <figcaption>Nueva orden</figcaption>
           </figure>
           <figure class="capture">
-            <img src="/screenshots/stock.png" width="1280" height="720" alt="Módulo de stock con dólar BNA y precios" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Stock y precios">
+              <img src="/screenshots/stock.png" width="1280" height="720" alt="Módulo de stock con dólar BNA y precios" loading="lazy" />
+            </button>
             <figcaption>Stock y precios</figcaption>
           </figure>
           <figure class="capture">
-            <img src="/screenshots/clientes.png" width="1280" height="720" alt="Directorio de clientes con importación desde Excel" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Clientes">
+              <img src="/screenshots/clientes.png" width="1280" height="720" alt="Directorio de clientes con importación desde Excel" loading="lazy" />
+            </button>
             <figcaption>Clientes</figcaption>
           </figure>
           <figure class="capture">
-            <img src="/screenshots/calendario.png" width="1280" height="720" alt="Calendario mensual del taller" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Calendario">
+              <img src="/screenshots/calendario.png" width="1280" height="720" alt="Calendario mensual del taller" loading="lazy" />
+            </button>
             <figcaption>Calendario</figcaption>
           </figure>
           <figure class="capture">
-            <img src="/screenshots/pendientes.png" width="1280" height="720" alt="Pendientes y tareas del equipo" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Pendientes">
+              <img src="/screenshots/pendientes.png" width="1280" height="720" alt="Pendientes y tareas del equipo" loading="lazy" />
+            </button>
             <figcaption>Pendientes</figcaption>
           </figure>
           <figure class="capture">
-            <img src="/screenshots/menu.png" width="720" height="1280" alt="Menú dashboard de módulos de RepaLab" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Menú de módulos">
+              <img src="/screenshots/menu.png" width="720" height="1280" alt="Menú dashboard de módulos de RepaLab" loading="lazy" />
+            </button>
             <figcaption>Menú de módulos</figcaption>
           </figure>
           <figure class="capture">
-            <img src="/screenshots/cuenta.png" width="720" height="720" alt="Menú de cuenta, preferencias y taller" loading="lazy" />
+            <button type="button" class="capture-open" aria-label="Abrir captura: Cuenta y preferencias">
+              <img src="/screenshots/cuenta.png" width="720" height="720" alt="Menú de cuenta, preferencias y taller" loading="lazy" />
+            </button>
             <figcaption>Cuenta y preferencias</figcaption>
           </figure>
         </div>
@@ -266,7 +281,7 @@
       <section id="precios" class="section section-pricing">
         <div class="section-head reveal">
           <h2>Precios en pesos, sin letra chica</h2>
-          <p>Más accesible que la competencia local. 30 días gratis. Cancelás cuando quieras.</p>
+          <p>30 días gratis. Cancelás cuando quieras.</p>
           <div class="billing-toggle" role="group" aria-label="Periodo de facturación">
             <button type="button" class="billing-btn is-active" data-billing="monthly">Mensual</button>
             <button type="button" class="billing-btn" data-billing="yearly">Anual · −20%</button>
@@ -433,6 +448,22 @@
       </div>
       <p>© <span id="year"></span> RepaLab. Gestión de reparaciones y proveedores.</p>
     </footer>
+
+    <dialog id="capture-lightbox" class="lightbox" aria-label="Captura ampliada">
+      <div class="lightbox-bar">
+        <p class="lightbox-caption"></p>
+        <div class="lightbox-tools">
+          <button type="button" data-lightbox-zoom-out aria-label="Alejar">−</button>
+          <button type="button" data-lightbox-zoom-in aria-label="Acercar">+</button>
+          <button type="button" data-lightbox-close aria-label="Cerrar">×</button>
+        </div>
+      </div>
+      <button type="button" class="lightbox-nav lightbox-prev" data-lightbox-prev aria-label="Captura anterior">←</button>
+      <div class="lightbox-stage" tabindex="0">
+        <img alt="" />
+      </div>
+      <button type="button" class="lightbox-nav lightbox-next" data-lightbox-next aria-label="Captura siguiente">→</button>
+    </dialog>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

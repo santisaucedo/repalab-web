@@ -324,6 +324,71 @@ function initHeroCarousel(): void {
   start();
 }
 
+function initCaptureLightbox(): void {
+  const dialog = document.querySelector<HTMLDialogElement>("#capture-lightbox");
+  const stage = dialog?.querySelector<HTMLElement>(".lightbox-stage");
+  const image = dialog?.querySelector<HTMLImageElement>(".lightbox-stage img");
+  const caption = dialog?.querySelector<HTMLElement>(".lightbox-caption");
+  const zoomIn = dialog?.querySelector<HTMLButtonElement>("[data-lightbox-zoom-in]");
+  const zoomOut = dialog?.querySelector<HTMLButtonElement>("[data-lightbox-zoom-out]");
+  const previous = dialog?.querySelector<HTMLButtonElement>("[data-lightbox-prev]");
+  const next = dialog?.querySelector<HTMLButtonElement>("[data-lightbox-next]");
+  const close = dialog?.querySelector<HTMLButtonElement>("[data-lightbox-close]");
+  const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>(".capture-open"));
+  if (!dialog || !stage || !image || !caption || !zoomIn || !zoomOut || !previous || !next || !close) return;
+
+  let index = 0;
+  let scale = 1;
+
+  const applyScale = () => {
+    image.style.width = `${scale * 100}%`;
+    image.style.maxWidth = "none";
+    image.style.cursor = scale > 1 ? "zoom-out" : "zoom-in";
+  };
+
+  const show = (nextIndex: number) => {
+    index = (nextIndex + triggers.length) % triggers.length;
+    const trigger = triggers[index];
+    const source = trigger?.querySelector("img");
+    const label = trigger?.closest("figure")?.querySelector("figcaption")?.textContent?.trim() ?? "";
+    if (!source) return;
+    image.src = source.currentSrc || source.src;
+    image.alt = source.alt;
+    caption.textContent = label;
+    scale = 1;
+    applyScale();
+    stage.scrollTo(0, 0);
+  };
+
+  const setScale = (value: number) => {
+    scale = Math.min(3, Math.max(1, Math.round(value * 100) / 100));
+    applyScale();
+  };
+
+  triggers.forEach((trigger, triggerIndex) => {
+    trigger.addEventListener("click", () => {
+      show(triggerIndex);
+      if (!dialog.open) dialog.showModal();
+    });
+  });
+
+  zoomIn.addEventListener("click", () => setScale(scale + 0.5));
+  zoomOut.addEventListener("click", () => setScale(scale - 0.5));
+  previous.addEventListener("click", () => show(index - 1));
+  next.addEventListener("click", () => show(index + 1));
+  close.addEventListener("click", () => dialog.close());
+  image.addEventListener("click", () => setScale(scale > 1 ? 1 : 2));
+  stage.addEventListener("wheel", (event) => {
+    if (!event.ctrlKey) return;
+    event.preventDefault();
+    setScale(scale + (event.deltaY < 0 ? 0.2 : -0.2));
+  }, { passive: false });
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    dialog.close();
+  });
+}
+
 initPreferences();
 initBillingToggle();
 initNavDrawer();
@@ -331,3 +396,4 @@ initReveal();
 initContactForm();
 initYear();
 initHeroCarousel();
+initCaptureLightbox();
