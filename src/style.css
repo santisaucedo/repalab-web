@@ -1025,6 +1025,80 @@ h3,
   color: rgba(232, 238, 242, 0.82);
 }
 
+.plan-more {
+  margin: 2rem 0 0;
+}
+
+.plan-more h3 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.plan-more-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.plan-more-grid h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.plan-more-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 36ch;
+}
+
+.fine-print {
+  margin: 2.25rem 0 0;
+  padding: 1.4rem 1.25rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.fine-print h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.fine-print-lead {
+  margin: 0.35rem 0 1.1rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.fine-print-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.fine-print-grid h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+}
+
+.fine-print-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.fine-print-note {
+  margin: 1.15rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
 .pricing-custom {
   margin: 1.75rem 0 0;
   text-align: center;
@@ -1238,6 +1312,16 @@ a:focus-visible {
 
   .plan-featured {
     transform: translateY(-6px);
+  }
+
+  .plan-more-grid,
+  .fine-print-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .plan-more-grid p {
+    max-width: none;
   }
 
   .access-grid,
